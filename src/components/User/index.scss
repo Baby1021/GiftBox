@@ -1,0 +1,25 @@
+.user-info {
+  display: flex;
+  align-items: center;
+
+  &__avatar {
+    width: 146px;
+    height: 146px;
+    margin-right: 32px;
+    border-radius: 50%;
+  }
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+
+    &--name {
+      font-size: 36px;
+    }
+
+    &--desc {
+      font-size: 26px;
+      color: #9b9b9b;
+    }
+  }
+}

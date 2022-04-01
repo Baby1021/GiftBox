@@ -1,0 +1,50 @@
+.main {
+  padding: 0 16px;
+
+  &__task {
+    margin-top: 60px;
+    
+    .task-item {
+      margin-bottom: 16px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__gift {
+    margin-top: 26px;
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+
+      .title {
+        font-size: 40px;
+        font-weight: 600;
+      }
+
+      .more {
+        font-size: 24px;
+        color: #9b9b9b;
+      }
+    }
+
+    .list {
+      display: flex;
+      flex-wrap: wrap;
+
+      .gift-item {
+        margin-right: 60px;
+        margin-bottom: 24px;
+
+        &:nth-child(2n) {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
