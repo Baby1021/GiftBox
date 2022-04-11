@@ -2,7 +2,8 @@ export default defineAppConfig({
   pages: [
     'pages/index/index',
     'pages/task-list/index',
-    'pages/gift-list/index'
+    'pages/gift-list/index',
+    'pages/mine/index'
   ],
   window: {
     backgroundTextStyle: 'light',
@@ -22,6 +23,18 @@ export default defineAppConfig({
         iconPath: './images/gift.png',
         selectedIconPath: 'images/gift_on.png',
         pagePath:'pages/gift-list/index',
+        text: ''
+      },
+      {
+        iconPath: './images/task.png',
+        selectedIconPath: 'images/task_on.png',
+        pagePath:'pages/task-list/index',
+        text: ''
+      },
+      {
+        iconPath: './images/mine.png',
+        selectedIconPath: 'images/mine_on.png',
+        pagePath:'pages/mine/index',
         text: ''
       }
     ],

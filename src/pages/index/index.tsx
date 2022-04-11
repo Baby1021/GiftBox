@@ -41,8 +41,6 @@ export default class Index extends Component {
             }
           </View>
         </View>
-        
-        <Text>Hello world!!!!</Text>
       </View>
     )
   }
