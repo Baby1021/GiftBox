@@ -2,7 +2,7 @@
   "miniprogramRoot": "./dist",
   "projectname": "giftBox",
   "description": "礼物盒",
-  "appid": "touristappid",
+  "appid": "wx6a253b48f9d772fb",
   "setting": {
     "urlCheck": true,
     "es6": false,
