@@ -1,3 +1,5 @@
+import { resolve } from 'path'
+
 const config = {
   projectName: 'giftBox',
   date: '2022-3-22',
@@ -59,10 +61,14 @@ const config = {
         }
       }
     }
+  },
+  alias: {
+     '@/components': resolve(__dirname, '..', 'src/components'),
+     '@/api': resolve(__dirname, '..', 'src/api'),
   }
 }
 
-module.exports = function (merge) {
+export default function (merge) {
   if (process.env.NODE_ENV === 'development') {
     return merge({}, config, require('./dev'))
   }

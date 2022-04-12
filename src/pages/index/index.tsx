@@ -1,9 +1,9 @@
 import { Component } from 'react'
-import { View, Text } from '@tarojs/components'
-import Taro from '@tarojs/taro'
-import User from '../../components/User/index'
-import TaskItem from '../../components/TaskItem'
-import GiftItem from '../../components/GiftItem'
+import { View } from '@tarojs/components'
+import { queryGift } from '@/api/index'
+import User from '@/components/User/index'
+import TaskItem from '@/components/TaskItem'
+import GiftItem from '@/components/GiftItem'
 import './index.scss'
 
 export default class Index extends Component {
@@ -17,21 +17,12 @@ export default class Index extends Component {
   }
 
   componentDidMount() {
-    Taro.cloud.init({
-      env: 'test-x1dzi'
-    })
-
     this.getGiftList();
   }
 
-  getGiftList() {
-    const db = Taro.cloud.database();
-
-    db.collection('gift').where({}).get({
-      success: function(res: any) {
-        console.log(res)
-      }
-    })
+  async getGiftList() {
+    const { data } = await queryGift();
+    console.log('data-->', data);
   }
 
   render () {
