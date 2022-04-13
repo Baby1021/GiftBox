@@ -1,20 +1,23 @@
 import { Component } from 'react'
-import { View, Text, Image } from '@tarojs/components'
+import { View, Image } from '@tarojs/components'
 import './index.scss'
 
 export default class GiftItem extends Component {
   render() {
+    const { item } = this.props
     return (
       <View className='gift-item'>
         <View className='gift-item__img'>
-          <Image className='image' src='https://dss2.bdstatic.com/8_V1bjqh_Q23odCf/pacific/1968904449.jpg'></Image>
+          <Image className='image' src={item.imgUrl}></Image>
         </View>
         <View className='gift-item__content'>
           <View className='name'>
-            <View>海蓝之谜</View>
-            <View>1000积分</View>
+            <View>{item.name}</View>
+            <View>{item.score}积分</View>
           </View>
-          <View className='desc'>精粹水</View>
+          {
+            !!item.price && (<View className='price'>￥{item.price}</View>)
+          }
         </View>
       </View>
     )
