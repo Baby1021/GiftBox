@@ -1,5 +1,5 @@
 page {
-  background-color: #777;
+  background-color: #f6f6f6;
 }
 
 @mixin column {
@@ -12,6 +12,7 @@ page {
     display: flex;
     justify-content: space-between;
     padding: 32px 48px;
+    margin-bottom: 24px;
     background-color: #fff;
 
     &__left {
@@ -54,10 +55,29 @@ page {
         }
       }
     }
+  }
 
-    .img {
-      width: 280px;
-      height: 240px;
+  .img {
+      width: 240px;
+      height: 200px;
+    }
+
+  &-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 686px;
+    height: 240px;
+    border-radius: 16px;
+    padding: 0 32px;
+    margin: 0 auto 24px;
+    background: #fff;
+    box-sizing: border-box;
+
+    &__title {
+      font-size: 32px;
+      color: #777;
+      margin-left: 60px;
     }
   }
 }

@@ -24,6 +24,7 @@
     "paths": {
       "@/components/*": ["./src/components/*"],
       "@/api/*": ["./src/api/*"],
+      "@/images/*": ["./src/images/*"],
     }
   },
   "include": ["./src", "global.d.ts"],

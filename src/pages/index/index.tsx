@@ -12,7 +12,7 @@ export default class Index extends Component {
     super(props)
     this.state = { 
       taskList: [0, 1, 2],
-      giftList: [0, 1, 2, 3]
+      giftList: []
     }
   }
 
@@ -22,6 +22,9 @@ export default class Index extends Component {
 
   async getGiftList() {
     const { data } = await queryGift();
+    this.setState({
+      giftList: data
+    })
     console.log('data-->', data);
   }
 
@@ -46,7 +49,7 @@ export default class Index extends Component {
           <View className='list'>
             {
               giftList.map((i) => {
-                return <GiftItem key={i}></GiftItem>
+                return <GiftItem key={i} item={i}></GiftItem>
               })
             }
           </View>
