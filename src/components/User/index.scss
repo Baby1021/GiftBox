@@ -12,6 +12,7 @@
   &__main {
     display: flex;
     flex-direction: column;
+    color: #fff;
 
     &--name {
       font-size: 36px;
@@ -19,7 +20,6 @@
 
     &--desc {
       font-size: 26px;
-      color: #9b9b9b;
     }
   }
 }

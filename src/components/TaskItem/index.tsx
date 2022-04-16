@@ -1,5 +1,5 @@
 import { Component } from 'react'
-import { View, Text } from '@tarojs/components'
+import { View } from '@tarojs/components'
 import './index.scss'
 
 export default class TaskItem extends Component {
@@ -7,9 +7,13 @@ export default class TaskItem extends Component {
     return (
       <View className='task-item'>
         <View className='task-item__left'>
-          <Text>总结宏任务和微任务</Text>
+          <View className='name'>总结宏任务和微任务</View>
+          <View className='score'>100积分</View>
+          <View className='time'>2022.04.16</View>
         </View>
-        <View className='task-item__rigth'>100积分</View>
+        <View className='task-item__right'>
+          <View className='img'></View>
+        </View>
       </View>
     )
   }
