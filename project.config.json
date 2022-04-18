@@ -1,7 +1,7 @@
 {
     "miniprogramRoot": "client/dist/",
     "cloudfunctionRoot": "cloud/",
-    "projectname": "giftBox",
+    "projectname": "GiftBox",
     "description": "礼物盒",
     "appid": "wx6a253b48f9d772fb",
     "setting": {

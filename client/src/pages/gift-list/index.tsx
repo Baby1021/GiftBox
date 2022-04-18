@@ -1,5 +1,5 @@
 import { Component } from 'react'
-import { View } from '@tarojs/components'
+import { View, Text } from '@tarojs/components'
 import Taro from '@tarojs/taro'
 import { addGift, getGiftList } from '@/api/index'
 import GiftItem from '@/components/GiftItem';
@@ -41,12 +41,16 @@ export default class GiftListPage extends Component<{ [key: string]: number }, {
             100)
     }
 
+    openGitAddPage = () => {
+        Taro.navigateTo({ url: '/pages/add-gift/index' })
+    }
+
     render() {
-        return <View>
+        return (<View>
+            <Text onClick={this.openGitAddPage}>添加礼物</Text>
             {this.state.giftList.map(gift => {
                 return <GiftItem key={gift._id} item={gift} />
             })}
-        </View>
-
+        </View>)
     }
 }
