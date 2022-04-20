@@ -2,6 +2,7 @@ export default defineAppConfig({
   pages: [
     'pages/index/index',
     'pages/task-list/index',
+    'pages/add-task/index',
     'pages/gift-list/index',
     'pages/mine/index'
   ],

@@ -6,7 +6,8 @@ class App extends Component {
   
   componentDidMount () {
     Taro.cloud.init({
-      env: 'love-5gty03xr58099642'
+      env: 'love-5gty03xr58099642',
+      traceUser: true,
     })
   }
 

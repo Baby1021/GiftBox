@@ -1,4 +1,5 @@
 import { Component } from 'react'
+import Taro from "@tarojs/taro";
 import { View, Text, Image } from '@tarojs/components'
 import img from '@/images/score.png'
 import giftImg from '@/images/gift-bg.png'
@@ -8,7 +9,15 @@ export default class Index extends Component {
 
   constructor (props) {
     super(props)
-    this.state = {  }
+    this.state = { 
+
+    }
+  }
+
+  goTo(type: string) {
+    Taro.navigateTo({
+      url: `/pages/add-${type}/index`
+    })
   }
 
   render () {
@@ -29,13 +38,13 @@ export default class Index extends Component {
             <Image className='img' src={img}></Image>
           </View>
         </View>
-        <View className='mine-card'>
+        <View className='mine-card' onClick={() => this.goTo('task')}>
           <View className='mine-card__title'>任务中心</View>
           <View>
             <Image className='img' src={img}></Image>
           </View>
         </View>
-        <View className='mine-card'>
+        <View className='mine-card' onClick={() => this.goTo('gift')}>
           <View className='mine-card__title'>礼物中心</View>
           <View>
             <Image className='img' src={giftImg}></Image>
