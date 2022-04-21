@@ -21,7 +21,7 @@ module.exports = {
   rules: {
     "react/jsx-uses-react": "off", // 屏蔽"React" is defined but never used错误
     "react/react-in-jsx-scope": "off", // "React" 必须在作用域中
-    
+
     // 没有使用的变量
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": [
@@ -36,5 +36,6 @@ module.exports = {
     "import/no-unresolved": 'error',
 
     "react/prop-types": [2, { ignore: ['children'] }], // React的props的类型检查，忽略children属性
+    "react/jsx-indent-props": 0
   }
 }

@@ -1,10 +1,3 @@
-import { Component } from 'react'
-import { Button, View } from '@tarojs/components'
+import { GiftAddPage } from './GiftAddPage'
 
-export default class Index extends Component {
-    render() {
-        return <View>
-            <Button>添加礼物</Button>
-        </View>
-    }
-}
+export default GiftAddPage

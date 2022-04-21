@@ -15,7 +15,7 @@ export default class GiftListPage extends Component<{ [key: string]: number }, {
 
     componentDidMount() {
         console.log("gift list page mount");
-        getGiftList().then(res => {
+        getGiftList(20).then(res => {
             console.log("query gift success");
 
             this.setState({ giftList: res.data })

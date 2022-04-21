@@ -1,4 +1,5 @@
 import { Component } from 'react'
+import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import User from '@/components/User/index'
 import TaskItem from '@/components/TaskItem'
@@ -11,6 +12,10 @@ export default class Index extends Component<{ [key: string]: number }, { taskLi
     this.state = {
       taskList: [0, 1, 2],
     }
+  }
+
+  componentDidMount(){
+    Taro.navigateTo({ url: '/pages/add-gift/index' })
   }
 
   render() {

@@ -1,3 +1,4 @@
 export default definePageConfig({
-  navigationBarTitleText: '礼物中心'
+  navigationBarBackgroundColor: "#F8D57E",
+  navigationBarTitleText: '添加礼物'
 })
