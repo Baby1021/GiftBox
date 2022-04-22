@@ -3,20 +3,14 @@ import Taro from '@tarojs/taro'
 import './app.scss'
 
 class App extends Component {
-  
+
   componentDidMount () {
     Taro.cloud.init({
-      env: 'love-5gty03xr58099642'
+      // TODO 通过环境变量写入
+      env: 'giftbox-dev-5gm5wlcl3c124eda'
     })
   }
 
-  componentDidShow () {}
-
-  componentDidHide () {}
-
-  componentDidCatchError () {}
-
-  // this.props.children 是将要会渲染的页面
   render () {
     return this.props.children
   }
