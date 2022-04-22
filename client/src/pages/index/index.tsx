@@ -1,35 +1,20 @@
 import { Component } from 'react'
 import { View } from '@tarojs/components'
-import { queryGift } from '@/api/index'
 import User from '@/components/User/index'
 import TaskItem from '@/components/TaskItem'
-import GiftItem from '@/components/GiftItem'
 import './index.scss'
 
-export default class Index extends Component {
+export default class Index extends Component<{ [key: string]: number }, { taskList: number[] }> {
 
-  constructor (props) {
+  constructor(props) {
     super(props)
-    this.state = { 
+    this.state = {
       taskList: [0, 1, 2],
-      giftList: []
     }
   }
 
-  componentDidMount() {
-    this.getGiftList();
-  }
-
-  async getGiftList() {
-    const { data } = await queryGift();
-    this.setState({
-      giftList: data
-    })
-    console.log('data-->', data);
-  }
-
-  render () {
-    const { taskList, giftList } = this.state;
+  render() {
+    const { taskList } = this.state;
 
     return (
       <View className='main'>
@@ -54,7 +39,7 @@ export default class Index extends Component {
             </View>
           </View>
         </View>
-       
+
         {/* <View className='main__gift'>
           <View className='nav'>
             <View className='title'>礼物列表</View>

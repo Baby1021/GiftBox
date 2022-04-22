@@ -1,8 +1,9 @@
 import { Component } from 'react'
 import { View, Image } from '@tarojs/components'
+import { Gift } from '@/api/gift/type'
 import './index.scss'
 
-export default class GiftItem extends Component {
+export default class GiftItem extends Component<{item:Gift}> {
   render() {
     const { item } = this.props
     return (
