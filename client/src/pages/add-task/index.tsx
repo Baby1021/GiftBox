@@ -1,6 +1,7 @@
 import { Component } from 'react'
-import Taro from '@tarojs/taro'
-import { View, Form, Text, Input, Picker, Button  } from '@tarojs/components'
+import { View, Form, Text, Label, Input, Picker, Button  } from '@tarojs/components'
+import { addTask } from '@/api/index'
+import './index.scss'
 
 export default class AddTask extends Component {
   constructor(props) {
@@ -10,7 +11,8 @@ export default class AddTask extends Component {
       form: {
         name: '',
         type: '',
-        date: '',
+        startTime: '',
+        endTime: '',
         score: ''
       }
     };
@@ -37,13 +39,7 @@ export default class AddTask extends Component {
   save = () => {
     const { form } = this.state;
 
-    Taro.cloud.callFunction({
-      name: 'task',
-      data: form,
-      complete: res => {
-        console.log('callFunction test result: ', res)
-      }
-    })
+    addTask(form)
   }
 
   render() { 
@@ -53,30 +49,50 @@ export default class AddTask extends Component {
         <Form className='form'>
           <View className='form__item'>
             <Text>任务：</Text>
-            <Input value={form.name} type='text' onBlur={(e) => this.onValue('name', e)} placeholder='输入任务' />
+            <Input value={form.name} type='text' onBlur={(e) => this.onValue('name', e)} placeholder='请输入任务' placeholderStyle='color: #A2A2A4' />
           </View>
           <View className='form__item'>
             <Text>任务类型：</Text>
             <Picker mode='selector' range={typeList} onChange={this.changeType}>
-              <View className='picker'>
-                当前选择：{form.type}
-              </View>
+              {!form.type ? (
+                <Label className="form__item--placeholder" style={{ color: '#A2A2A4' }}>
+                  请选择任务类型
+                </Label>
+              ) : (
+                <Label>{form.type}</Label>
+              )}
             </Picker>
           </View>
           <View className='form__item'>
-            <Text>完成时间：</Text>
-            <Picker mode='date' onChange={(e) => this.onValue('date', e)}>
-              <View className='picker'>
-                当前选择：{form.date}
-              </View>
+            <Text>开始时间：</Text>
+            <Picker mode='date' value={form.startTime} onChange={(e) => this.onValue('startTime', e)}>
+              {!form.startTime ? (
+                <Label className="form__item--placeholder" style={{ color: '#A2A2A4' }}>
+                  请选择开始时间
+                </Label>
+              ) : (
+                <Label>{form.startTime}</Label>
+              )}
+            </Picker>
+          </View>
+          <View className='form__item'>
+            <Text>结束时间：</Text>
+            <Picker mode='date' value={form.endTime} onChange={(e) => this.onValue('endTime', e)}>
+              {!form.endTime ? (
+                <Label className="form__item--placeholder" style={{ color: '#A2A2A4' }}>
+                  请选择结束时间
+                </Label>
+              ) : (
+                <Label>{form.endTime}</Label>
+              )}
             </Picker>
           </View>
           <View className='form__item'>
             <Text>获得积分：</Text>
-            <Input value={form.score} type='number' onBlur={(e) => this.onValue('score', e)} placeholder='输入积分' />
+            <Input value={form.score} type='number' onBlur={(e) => this.onValue('score', e)} placeholder='请输入积分' placeholderStyle='color: #A2A2A4' />
           </View>
         </Form>
-        <Button onClick={this.save}>保存</Button>
+        <Button className='action-btn' onClick={this.save}>保存</Button>
       </View>
     )
   }

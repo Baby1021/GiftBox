@@ -1,0 +1,25 @@
+.add-task {
+  .form {
+    &__item {
+      display: flex;
+      align-items: center;
+      height: 96px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+      &:last-child {
+        border-bottom: 0;
+      }
+    }
+  }
+
+  .action-btn {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    border: none;
+    background-color: #f8d57e;
+    border-radius: 0;
+  }
+}
