@@ -1,20 +1,26 @@
-import { Component } from 'react'
+import { FC } from 'react'
 import { View } from '@tarojs/components'
+import { Task } from '@/api/task/type'
 import './index.scss'
 
-export default class TaskItem extends Component {
-  render() {
-    return (
-      <View className='task-item'>
-        <View className='task-item__left'>
-          <View className='name'>总结宏任务和微任务</View>
-          <View className='score'>100积分</View>
-          <View className='time'>2022.04.16</View>
-        </View>
-        <View className='task-item__right'>
-          <View className='img'></View>
-        </View>
+export interface TaskItemPros {
+  item: Task;
+}
+
+
+export const TaskItem: FC<TaskItemPros> = props => {
+  const { item } = props;
+
+  return (
+    <View className='task-item'>
+      <View className='task-item__left'>
+        <View className='name'>{item.name}</View>
+        <View className='score'>{item.score}</View>
+        <View className='time'>{item.startTime} - {item.endTime}</View>
       </View>
-    )
-  }
+      <View className='task-item__right'>
+        <View className='img'></View>
+      </View>
+    </View>
+  )
 }

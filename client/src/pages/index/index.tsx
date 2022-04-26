@@ -1,20 +1,34 @@
 import { Component } from 'react'
 import { View } from '@tarojs/components'
+import { queryTask } from '@/api/index'
 import User from '@/components/User/index'
-import TaskItem from '@/components/TaskItem'
+import { TaskItem } from '@/components/TaskItem/index'
 import './index.scss'
 
-export default class Index extends Component<{ [key: string]: number }, { taskList: number[] }> {
 
-  constructor(props) {
-    super(props)
-    this.state = {
-      taskList: [0, 1, 2],
-    }
+// TODO: taskList 类型
+export default class Index extends Component<{ [key: string]: number }, { taskList: any }> {
+  state: {
+    taskList: [], // 任务列表
+  }
+
+
+  componentDidMount() {
+    this.getTaskList();
+  }
+
+
+  async getTaskList() {
+    const { data } = await queryTask();
+    this.setState({
+      taskList: data,
+    });
   }
 
   render() {
+    // TODO:为什么 state 为 null
     const { taskList } = this.state;
+    
 
     return (
       <View className='main'>
@@ -32,8 +46,8 @@ export default class Index extends Component<{ [key: string]: number }, { taskLi
             </View>
             <View className='main__task'>
               {
-                taskList.map((i) => {
-                  return <TaskItem key={i}></TaskItem>
+                taskList.map((item) => {
+                  return <TaskItem item={item} key={item._id}></TaskItem>
                 })
               }
             </View>
