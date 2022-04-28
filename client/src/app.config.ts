@@ -4,7 +4,8 @@ export default defineAppConfig({
     'pages/task-list/index',
     'pages/gift-list/index',
     'pages/mine/index',
-    'pages/add-gift/index'
+    'pages/add-gift/index',
+    'pages/cropper/index'
   ],
   window: {
     backgroundTextStyle: 'light',

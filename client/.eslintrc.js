@@ -31,6 +31,7 @@ module.exports = {
     "@typescript-eslint/no-inferrable-types": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off", // 函数需要写返回值
     "@typescript-eslint/no-explicit-any": 2, // 不能写any
+    "@typescript-eslint/ban-ts-comment":0,
 
     "import/extensions": 'error',
     "import/no-unresolved": 'error',
