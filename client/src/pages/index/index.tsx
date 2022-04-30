@@ -8,8 +8,11 @@ import './index.scss'
 
 // TODO: taskList 类型
 export default class Index extends Component<{ [key: string]: number }, { taskList: any }> {
-  state: {
-    taskList: [], // 任务列表
+  constructor(props) {
+    super(props)
+    this.state ={
+     taskList: [], // 任务列表
+    }
   }
 
 
@@ -27,6 +30,7 @@ export default class Index extends Component<{ [key: string]: number }, { taskLi
 
   render() {
     // TODO:为什么 state 为 null
+    console.log('this.state=->', this.state)
     const { taskList } = this.state;
     
 

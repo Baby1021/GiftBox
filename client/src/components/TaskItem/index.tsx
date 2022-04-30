@@ -3,12 +3,12 @@ import { View } from '@tarojs/components'
 import { Task } from '@/api/task/type'
 import './index.scss'
 
-export interface TaskItemPros {
+export interface TaskItemProps {
   item: Task;
 }
 
 
-export const TaskItem: FC<TaskItemPros> = props => {
+export const TaskItem: FC<TaskItemProps> = props => {
   const { item } = props;
 
   return (
