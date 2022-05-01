@@ -1,8 +1,5 @@
-import React, { Component } from 'react'
-import { View, Text } from '@tarojs/components'
-import Taro, { getCurrentPages } from '@tarojs/taro'
-import { addGift, getGiftList } from '@/api/index'
-import GiftItem from '@/components/GiftItem';
+import React from 'react'
+import Taro from '@tarojs/taro'
 import { ErrorView } from '@/components/ErrorView';
 import TaroCropper from 'taro-cropper';
 
@@ -21,8 +18,9 @@ export function CropperPage() {
         const pages = Taro.getCurrentPages()
         const current = pages[pages.length - 1]
         const channel = current.getOpenerEventChannel()
+        const name = path.substring(path.lastIndexOf('/') + 1)
 
-        channel.emit("path", { path })
+        channel.emit("path", { path, name })
         Taro.navigateBack()
     }
 

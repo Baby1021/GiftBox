@@ -9,7 +9,7 @@ export default class GiftItem extends Component<{item:Gift}> {
     return (
       <View className='gift-item'>
         <View className='gift-item__img'>
-          <Image className='image' src='cloud://giftbox-dev-5gm5wlcl3c124eda.6769-giftbox-dev-5gm5wlcl3c124eda-1310221881/test.png'></Image>
+          <Image className='image' src={item.imgUrl}></Image>
         </View>
         <View className='gift-item__content'>
           <View className='name'>

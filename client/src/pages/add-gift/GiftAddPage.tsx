@@ -1,5 +1,5 @@
 import { Component } from 'react'
-import { View, Text, Input, Form, Switch, Button, Textarea } from '@tarojs/components'
+import { View, Text, Image, Input, Form, Button, Textarea } from '@tarojs/components'
 import { addGift } from '@/api/index'
 import Taro from '@tarojs/taro'
 
@@ -15,35 +15,43 @@ export class GiftAddPage extends Component {
         this.state = {}
     }
 
-    onSubmit = (event) => {
+    chooseImg = () => {
         Taro.chooseImage({
             success: (result) => {
                 Taro.navigateTo({
                     url: '/pages/cropper/index?path=' + result.tempFilePaths[0],
                     events: {
-                        path: (path) => {
-                                   // Taro.cloud.uploadFile({
-        //     cloudPath: "test2.png",
-        //     filePath: res,
-        //     success: () => {
-        //         console.log("上传成功");
-        //     }
-        // })
-                            console.log("gift add page",path);
+                        path: ({ path, name }) => {
+                            this.setState({ path, imageName: name })
+
+                            console.log("gift add page", path, name);
                         }
                     }
                 })
             }
         })
-        // const data = event.detail.value
+    }
 
-        // addGift(
-        //     data.name,
-        //     "",
-        //     Number(data.price),
-        //     Number(data.score),
-        //     Number(data.exchangeCount)
-        // )
+    onSubmit = (event) => {
+        console.log(this.state);
+        
+        Taro.cloud.uploadFile({
+            cloudPath: 'gift/' + this.state.imageName,
+            filePath: this.state.path,
+            success: (result) => {
+                console.log("上传成功");
+                const data = event.detail.value
+
+                addGift(
+                    data.name,
+                    result.fileID,
+                    Number(data.price),
+                    Number(data.score),
+                    Number(data.exchangeCount)
+                )
+            }
+        })
+
     }
     onReset = (event) => {
         console.log(event);
@@ -97,6 +105,9 @@ export class GiftAddPage extends Component {
                         <Text style={titleStyle}>备注</Text>
                         <Textarea style={{ ...inputStyle, height: 100 }} name='price' type='number' placeholder='备注' />
                     </View>
+
+                    {this.state.path && <Image src={this.state.path} />}
+                    <Button style={{ backgroundColor: "#F8D57E" }} onClick={this.chooseImg} >选择图片</Button>
 
                     <Button style={{ backgroundColor: "#F8D57E" }} formType='submit'>添 加</Button>
                 </Form>
