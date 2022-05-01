@@ -4,5 +4,3 @@ export interface PageState {
   typeList: string[];
   form: Task
 }
-
-export interface PageProps {}

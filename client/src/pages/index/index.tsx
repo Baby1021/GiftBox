@@ -1,13 +1,12 @@
 import { Component } from 'react'
 import { View } from '@tarojs/components'
 import { queryTask } from '@/api/index'
+import { Task } from '@/api/task/type'
 import User from '@/components/User/index'
 import { TaskItem } from '@/components/TaskItem/index'
 import './index.scss'
 
-
-// TODO: taskList 类型
-export default class Index extends Component<{ [key: string]: number }, { taskList: any }> {
+export default class Index extends Component<{ [key: string]: number }, { taskList: Task[] }> {
   constructor(props) {
     super(props)
     this.state ={
@@ -29,8 +28,6 @@ export default class Index extends Component<{ [key: string]: number }, { taskLi
   }
 
   render() {
-    // TODO:为什么 state 为 null
-    console.log('this.state=->', this.state)
     const { taskList } = this.state;
     
 
@@ -43,7 +40,7 @@ export default class Index extends Component<{ [key: string]: number }, { taskLi
           <View className='main-container__box'>
             <View className='main-container__card'>
               <View className='title'>今日学习</View>
-              <View className='desc'>总共 3 项任务</View>
+              <View className='desc'>总共 {taskList.length} 项任务</View>
               <View className='process'>
                 <View className='line'></View>
               </View>
