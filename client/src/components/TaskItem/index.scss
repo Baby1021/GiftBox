@@ -11,7 +11,20 @@
     font-size: 28px;
     color: #1f1f39;
     .name,.score {
+      display: flex;
+      align-items: center;
       margin-bottom: 16px;
+    }
+    .tags {
+      width: 100px;
+      height: 40px;
+      margin-left: 10px;
+      line-height: 40px;
+      font-size: 24px;
+      color: #fff;
+      text-align: center;
+      background-color: #b8b8d2;
+      border-radius: 10px;
     }
     .time {
       font-size: 24px;
